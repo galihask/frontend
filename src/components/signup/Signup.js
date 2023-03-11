@@ -31,13 +31,21 @@ const Signup = (props) => {
             last_name: lastName
         }
 
-        const registerResult = await axios.post(`${BASE_URL}${SIGN_UP_URL}`, body)
+        const registerResult = await axios.post(`${BASE_URL}${SIGN_UP_URL}`, body, {
+            headers: {
+                'Access-Control-Allow-Origin':'*'
+            }
+        })
         console.log(registerResult.data)
         if (registerResult.status === 201) {
             try {
                 const tokenResult = await axios.post(`${BASE_URL}${TOKEN_URL}`, {
                     username: email,
                     password: password
+                }, {
+                    headers: {
+                        'Access-Control-Allow-Origin':'*'
+                    }
                 })
                 console.log(tokenResult.data)
                 window.localStorage.setItem('token', tokenResult.data.token)
