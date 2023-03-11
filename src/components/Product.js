@@ -2,10 +2,15 @@ import React from 'react'
 import { Card } from 'react-bootstrap'
 import Rating from './Rating'
 import { Link } from 'react-router-dom'
+import './product/product.css';
 
-function Product({ product }) {
+const Product = (props) => {
+    const {product} = props
+    console.log(product)
     return (
-        <Card className="my-3 p-3 rounded">
+        <Card
+            onClick={()=>{props.setSelectedProductId(product._id)}}
+            className="my-3 p-3 rounded">
             <Link to={`/product/${product._id}`}>
                 <Card.Img src={product.image} />
             </Link>
@@ -28,6 +33,11 @@ function Product({ product }) {
                     ${product.price}
                 </Card.Text>
             </Card.Body>
+            <button
+                onClick={()=>{props.setProductsInCart([...props.productsInCart, product])}}
+                className={'add-to-cart-button'}>
+                Add to cart
+            </button>
         </Card>
     )
 }

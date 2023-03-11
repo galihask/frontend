@@ -1,0 +1,15 @@
+.add-to-cart-button {
+    width: 200px;
+    border: none;
+    border-radius: 15px;
+    background-color: black;
+    color: white;
+    transition-duration: 0.3s;
+}
+
+.add-to-cart-button:hover {
+    transform: scale(1.1);
+
+    transition-duration: 0.3s;
+
+}
