@@ -10,7 +10,7 @@ import Login from "./components/login/Login";
 import Product from "./components/Product";
 import Cart from "./components/cart/Cart";
 
-export const BACK_END_SERVER_URL = 'ec2-16-171-23-217.eu-north-1.compute.amazonaws.com:8000'
+export const BACK_END_SERVER_URL = 'http://ec2-16-171-23-217.eu-north-1.compute.amazonaws.com:8000'
 const App = () => {
 
   const [isLogged, setIsLogged] = useState(false)
