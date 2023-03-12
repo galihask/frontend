@@ -13,11 +13,7 @@ const Products = (props) => {
 
     const fetchAll = () => {
         axios
-            .get(`${BACK_END_SERVER_URL}/api/products`, {
-                headers: {
-                    'Access-Control-Allow-Origin':'*'
-                }
-            })
+            .get(`${BACK_END_SERVER_URL}/api/products`)
             .then((res) => {
                 console.log(res.data)
                 props.setProducts(res.data)
@@ -28,11 +24,7 @@ const Products = (props) => {
 
     const getCategories = () => {
         axios
-            .get(`${BACK_END_SERVER_URL}/api/categories`, {
-                headers: {
-                    'Access-Control-Allow-Origin':'*'
-                }
-            })
+            .get(`${BACK_END_SERVER_URL}/api/categories`)
             .then((res)=>{
                 setCategories(res.data)
             })

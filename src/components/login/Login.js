@@ -25,12 +25,7 @@ const Login = (props) => {
             const tokenResult = await axios.post(`${BASE_URL}${TOKEN_URL}`, {
                 username: email,
                 password
-            },
-                {
-                    headers: {
-                        'Access-Control-Allow-Origin':'*'
-                    }
-                })
+            })
             if (tokenResult.status === 200) {
                 const token = tokenResult.data.token;
                 window.localStorage.setItem('token', token)
