@@ -2,7 +2,6 @@ import './signup.css';
 import {useState} from "react";
 import axios from 'axios'
 
-import {Form} from 'react-bootstrap';
 import {BASE_URL, SIGN_UP_URL, TOKEN_URL} from "../../constants";
 
 
@@ -31,21 +30,13 @@ const Signup = (props) => {
             last_name: lastName
         }
 
-        const registerResult = await axios.post(`${BASE_URL}${SIGN_UP_URL}`, body, {
-            headers: {
-                'Access-Control-Allow-Origin':'*'
-            }
-        })
+        const registerResult = await axios.post(`${BASE_URL}${SIGN_UP_URL}`, body)
         console.log(registerResult.data)
         if (registerResult.status === 201) {
             try {
                 const tokenResult = await axios.post(`${BASE_URL}${TOKEN_URL}`, {
                     username: email,
                     password: password
-                }, {
-                    headers: {
-                        'Access-Control-Allow-Origin':'*'
-                    }
                 })
                 console.log(tokenResult.data)
                 window.localStorage.setItem('token', tokenResult.data.token)
